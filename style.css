@@ -11,6 +11,14 @@ body{
     font-family: 'Nunito', sans-serif;
   
 }
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
 /*****scroll bar (start)******/
 ::-webkit-scrollbar {
     width: 5px;
@@ -29,37 +37,108 @@ body{
 /*****scroll bar (end)******/
 
 /*****nav section (start)******/
-#burger{
-    position: absolute;
-    opacity: 0%;
-    cursor: pointer;
-}
-#close{
-    position: absolute;
-    opacity: 0%;
-    cursor: pointer;
-}
-.burger_menu{
-    position: absolute;
-    opacity: 0%;
-}
-nav{
-    
-    transition: all 0.3s ease;
-    font-family: 'Nunito', sans-serif;
-    background-color: transparent;
+#navbar{
+    height:auto;
+    min-width: 100%;
     position: fixed;
-    width: 100%;
-    z-index: 1;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-around;
+    z-index: 300;
+    align-items: center;
+    padding: 1rem 0;
 }
-nav img{
-    width: 65px;
-    height: 65px;
-    margin: 0vh 30vw 0vh 14vw ;
+
+.logo {
+    display: flex;
+    align-items: center;
 }
+
+.logo img{
+    width: 50px;
+    margin-right: 10px;
+}
+
+.nav-logo{
+    color: #eeee;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.nav-list{
+    display: flex;
+    align-items: center;
+}
+
 .nav-item{
-    font-size: 1.3em;
-    margin: 0vh 2%;
+    margin: 0 8px;
+    color: #fff;
+}
+
+.nav-link{
+    padding: 10px;
+    color: #eeee;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.menu{
+    color: antiquewhite;
+}
+
+#close-menu, #toggle-menu{
+    display: none;
+}
+
+@media screen and (max-width:820px) {
+    nav{
+        height: 48px;
+        justify-content: space-between;
+        padding: 0 28px;
+    }
+    .logo a{
+        font-size: 0.9rem;
+    }
+    .logo img{
+        width: 30px;
+    }
+    #toggle-menu{
+        display: inline;
+        color: #eeee;
+        font-size: 24px;
+    }
+    #close-menu{
+        position: absolute;
+        right: 24px;
+        display: block;
+        font-size: 24px;
+        border-radius: 50%;
+    }
+    .nav{
+        position: fixed;
+        top:0;
+        right:-100%;
+        background-color: rgb(44,44,44);
+        color: #eeee;
+        width: 60%;
+        height: 100vh;
+        z-index: 300;
+        transition: 0.5s;
+        border-radius: 0 0 0 50%;
+    }
+    .nav-list{
+        display: flex;
+        flex-direction: column;
+    }
+    .nav-item{
+        margin: 2% 0;
+    }
+    .show{
+        right: 0%;
+    }
+
 }
 /****** Nav End***********/
   
@@ -109,12 +188,12 @@ nav img{
 }
   /* banner */
 .banner {
-    background-image: url('./img/header.png');
+    background-image: url('./img/ScalinG.png');
     background-size: cover;
     background-position: center center;
     color: white;
     object-fit: contain;
-    height: 96vh;
+    height: 100vh;
   }
   
 .banner__contents {
@@ -158,6 +237,13 @@ nav img{
     transition: all 0.2s;
   }
   
+  @media screen and (max-width:820px)
+  {
+      .banner{
+          background-image: url("./img/ScalinGmobile.png");
+          background-position: inherit;
+      }
+  }
  /*****footer section (start)******/
 footer{
     display: flex;
@@ -215,12 +301,6 @@ footer{
 }
 /*****footer section (end)******/
 
-@media only screen and (min-width: 70px) and (max-width: 1400px)  {
-    nav img{
-        margin: 0vh 18vw 0vh 10vw ;
-    }
-
-}
 /*****responsiveness for laptops (end)******/
 
 /*****responsiveness for tablets (start)******/
@@ -228,21 +308,12 @@ footer{
     body{
         overflow-x: hidden;
     }
-    nav img{
-    margin: 0vh 10vw 0vh 4vw ;   
-    }
-    .nav-item{
-        font-size: 1.1em;
-    }
 
     .footer-right button{
         height: 7vh;
     }
 }
 @media only screen and (min-width: 70px) and (max-width:770px){
-    nav img{
-        margin: 0vh 0vw 0vh 4vw ;   
-        }
     .banner__description{
         max-width: 90vw;
     }
@@ -257,20 +328,6 @@ footer{
     body{
         overflow-x: hidden;
         width: 100vw;
-    }
-    .burger_menu{
-        position: fixed;
-        opacity: 100%;
-        background-color: rgb(29, 28, 28);
-    }
-    nav{
-        text-align: center;
-        position: sticky;
-        width: 100vw;
-        height: 80vh;
-    }
-    nav img{
-        margin: 0px;
     }
 footer{
     position: relative;
